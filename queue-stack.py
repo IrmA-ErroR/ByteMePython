@@ -1,7 +1,7 @@
 import random
 class Stack:
-    # items = []
-    def __int__(self):
+
+    def __init__(self):
         self.items = []
 
     def is_empty(self):
@@ -23,10 +23,10 @@ class Stack:
 
 
 class Queue:
-    # stack_enqueue, stack_dequeue = Stack(), Stack()
-    def __int__(self):
-        self.item_enqueue = Stack()
-        self.item_dequeue = Stack()
+
+    def __init__(self):
+        self.stack_enqueue = Stack()
+        self.stack_dequeue = Stack()
 
     def is_empty(self):
         return self.stack_enqueue.is_empty() and self.stack_dequeue.is_empty()
@@ -42,11 +42,11 @@ class Queue:
         return self.stack_dequeue.pop()
 
     def peek(self):
-        if self.stack_enqueue:
-            if self.stack_dequeue.is_empty():
-                while not self.stack_enqueue.is_empty():
-                    self.stack_dequeue.push(self.stack_enqueue.pop())
-        return self.stack_dequeue[-1]
+        if self.stack_dequeue.is_empty():
+            while not self.stack_enqueue.is_empty():
+                self.stack_dequeue.push(self.stack_enqueue.pop())
+        return self.stack_dequeue.peek()
+
 
     def size(self):
         return self.stack_enqueue.size()
@@ -57,9 +57,7 @@ for _ in range(10):
     n = random.randint(1, 1000)
     my_queue.enqueue(n)
 
-print('Queue:', my_queue, my_queue.size(), '\n', [my_queue.peek() for i in range(my_queue.size()-1)])
-while not my_queue.is_empty():
-    print(my_queue.dequeue(), end=' ')
+print('Queue:', my_queue, '\n', [my_queue.dequeue() for i in range(my_queue.size()-1)])
 
 
 my_stack = Stack()
@@ -67,12 +65,14 @@ for _ in range(10):
     n = random.randint(1, 2000)
     my_stack.push(n)
 
+print('\nStack:\n', my_stack, '\n', [my_stack.pop() for i in range(my_stack.size()-1)])
 
 
 
-print('Queue:', my_queue, my_queue.size(), '\n', [my_queue.dequeue() for i in range(my_queue.size()-1)])
-while not my_queue.is_empty():
-    print(my_queue.dequeue(), end=' ')
-# [print(my_queue.peek())for i in range(my_queue.size()-1)])
+__________________________________________________________________
+# Queue: <__main__.Queue object at 0x00000208DC9313A0> 
+#  [756, 308, 220, 41, 446, 283, 302, 231, 650]
 
-print('\nStack:\n', my_stack)
+# Stack:
+#  <__main__.Stack object at 0x00000208DC820850> 
+#  [170, 258, 1175, 322, 1019, 1289, 271, 948, 130]
