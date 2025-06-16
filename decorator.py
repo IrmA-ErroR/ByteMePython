@@ -49,6 +49,7 @@ def my_normalization(number=1, *args, **kwargs):
 
 
 def cache_decorator(func):
+    '''Функция кэширует результаты выполнения функции для определенного набора аргументов'''
     caches = {}
 
     def wrapper(*args, **kwargs):
