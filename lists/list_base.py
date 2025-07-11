@@ -27,3 +27,18 @@ if 1 in my_list:
 # Замена элемента по индексу
 my_list[2] = '1'
 print(*my_list)
+
+# Считайте список чисел из одной строки
+numbers = list(map(int, input().split()))
+
+# Выведите первый элемент списка
+print(numbers[0])
+
+# Выведите последний элемент списка
+print(numbers[-1])
+
+# Выведите третий элемент списка (если он существует, иначе выведите "No third element")
+if len(numbers) > 2:
+    print(numbers[2])
+else:
+    print('No third element')
