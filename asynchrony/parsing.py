@@ -7,7 +7,7 @@ import time
 import asyncio
 import aiohttp
 
-my_path = r'C:\Users\sveta\OneDrive\Документы\ByteMePython\asynchrony\urls.json'
+my_path = r'my_path'
 
 
 BASE_URL = "https://en.wikipedia.org"
